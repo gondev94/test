@@ -1,118 +1,210 @@
+/* Estilos Globales */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        div {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+/* Container principal (aplica a ambas páginas) */
+.container,
+div {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
 
-        h1 {
-            text-align: center;
-            color: #667eea;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            padding-bottom: 15px;
-        }
+/* Títulos principales */
+h1 {
+    text-align: center;
+    color: #667eea;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 15px;
+}
 
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
 
-        /* Estilos de la Lista de Productos */
-        li {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 0;
-            margin: 2rem;
-        }
+/* ==================== ESTILOS DEL FORMULARIO (Real Time Products) ==================== */
+#formProduct {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    display: grid;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 
-        li > div {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid #f0f0f0;
-        }
+#formProduct input {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
 
-        li > div:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            border-color: #667eea;
-        }
+#formProduct input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
 
-        li img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+#formProduct button {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
 
-        li > div:hover img {
-            transform: scale(1.1);
-        }
+#formProduct button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
 
-        li h2 {
-            color: #333;
-            padding: 20px 20px 10px;
-            font-size: 1.3rem;
-        }
+#formProduct button:active {
+    transform: translateY(-1px);
+}
 
-        li p {
-            color: #666;
-            padding: 5px 20px;
-            font-size: 0.95rem;
-        }
+/* ==================== ESTILOS DE LISTAS DE PRODUCTOS (Ambas páginas) ==================== */
+#productsList,
+li {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0;
+}
 
-        li p:nth-of-type(2) {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
+#productsList > div,
+li > div {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid #f0f0f0;
+}
 
-        li p:last-of-type {
-            padding-bottom: 20px;
-        }
+#productsList > div:hover,
+li > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: #667eea;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            div {
-                padding: 20px;
-            }
+#productsList img,
+li img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-            h1 {
-                font-size: 1.8rem;
-            }
+#productsList > div:hover img,
+li > div:hover img {
+    transform: scale(1.1);
+}
 
-            li {
-                grid-template-columns: 1fr;
-            }
-        }
+#productsList h2,
+li h2 {
+    color: #333;
+    padding: 20px 20px 10px;
+    font-size: 1.3rem;
+}
+
+#productsList p,
+li p {
+    color: #666;
+    padding: 5px 20px;
+    font-size: 0.95rem;
+}
+
+#productsList p:nth-of-type(2),
+li p:nth-of-type(2) {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Padding extra para el último párrafo (Home) */
+li p:last-of-type {
+    padding-bottom: 20px;
+}
+
+/* ==================== BOTÓN ELIMINAR (Real Time Products) ==================== */
+.delete-btn {
+    width: calc(100% - 40px);
+    margin: 20px 20px 20px 20px;
+    padding: 12px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.delete-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .container,
+    div {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    #formProduct {
+        margin-bottom: 40px;
+    }
+
+    #productsList,
+    li {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
