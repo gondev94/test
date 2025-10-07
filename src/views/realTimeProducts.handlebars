@@ -19,6 +19,8 @@
                 <p>price : {{this.price}}€ </p>
                 <p>stock: {{this.stock}}</p>
                 <img src="{{this.thumbnail}}" alt="{{this.title}}" />
+                <button class="delete-btn">Eliminar</button>
+
             </div>
         {{/each}}
     </li>
@@ -39,7 +41,6 @@
         const productsList = document.getElementById("productsList");
         
         formProduct.addEventListener("submit", (e)=> {
-            e.preventDefault();
             const newProduct = {
                 title: productName.value,
                 description: productDescription.value,
@@ -78,10 +79,38 @@
                         <p>price : ${dataProducts.price}€ </p>
                         <p>stock: ${dataProducts.stock}</p>
                         <img src="${dataProducts.thumbnail}" alt="${dataProducts.title}" />
+                        <button class="delete-btn" data-title="${dataProducts.title}">Eliminar</button>
+
                     </div>
                 `;
             })
         });
+        document.addEventListener("click", (e) => {
+            if (e.target.classList.contains("delete-btn")) {
+                const card = e.target.closest("div");
+                const productId = card.getAttribute("data-id");
+                socket.emit("deleteProduct", productId);
+            }
+        });
+        socket.on("updateProducts", (products) => {
+        const productsList = document.getElementById("productsList");
+        productsList.innerHTML = "";
+        products.forEach((p) => {
+        productsList.innerHTML += 
+                `
+                <div data-id="${p.id}">
+                    <h2>${p.title}</h2>
+                    <p>description: ${p.description}</p>
+                    <p>price : ${p.price}€ </p>
+                    <p>stock: ${p.stock}</p>
+                    <img src="${p.thumbnail}" alt="${p.title}" />
+                    <button class="delete-btn">Eliminar</button>
+                </div>
+                `;
+            });
+        });
+
+
     }
 
     main()

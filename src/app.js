@@ -4,7 +4,7 @@ import viewsRouter from "./routes/views.router.js";
 import productsRouter from "./routes/products.router.js";
 import http from "http";
 import { Server } from "socket.io";
-
+import ProductManager from "./productManager.js";
 
 const app = express(); // 3creamos variable para contener la funcionalidad de expresss para poder levantar nuestro servidor
 const server = http.createServer(app);
@@ -24,6 +24,8 @@ app.use("/api/products", productsRouter);
 
 
 const products = [];
+const productManager = new ProductManager("./src/products.json");
+
 
 
 //websocket
@@ -40,6 +42,18 @@ io.on("connection", (socket) => {
         products.push(data);
         
         io.emit("productslist", data);
+    });
+
+    socket.on("deleteProduct", async (productId) => {
+        const updatedProducts = await productManager.deleteProductById(productId);
+        io.emit("updateProducts", updatedProducts);
+    });
+
+    socket.on("deleteProduct", async (productId) => {
+        const updatedProducts = await productManager.deleteProductById(productId);
+        products.length = 0;
+        products.push(...updatedProducts);
+        io.emit("updateProducts", updatedProducts);
     });
 
 
