@@ -16,27 +16,11 @@
     "thumbnail": "./img/remeranike.webp"
   },
   {
-    "id": "720a0c58-4a1c-4b85-a004-0433c02d6222",
-    "title": "pantalon adidas",
-    "description": "pantalon deportivo",
-    "price": 140,
-    "stock": 2,
-    "thumbnail": "/img/1759527751099-pantalonadidas.webp"
-  },
-  {
-    "id": "41806bd3-415b-4654-9817-2c32f2660bce",
-    "title": "zapatillas deportivas",
-    "description": "adidas",
+    "id": "fdca35e5-aaf1-420c-916c-e5570ba6bb06",
+    "title": "zapatillas running",
+    "description": "calzado deportivo para correr",
     "price": 120,
     "stock": 2,
-    "thumbnail": "/img/1759863411353-zapanike.webp"
-  },
-  {
-    "id": "c3ce1aeb-a6c3-4625-8cd2-f6dde04b4775",
-    "title": "1234",
-    "description": "23",
-    "price": 2,
-    "stock": 2,
-    "thumbnail": "/img/1759964473641-perfilia.png"
+    "thumbnail": "/img/1759964798730-1759774219967-zapanike.webp"
   }
 ]
