@@ -30,5 +30,13 @@
     "price": 120,
     "stock": 2,
     "thumbnail": "/img/1759863411353-zapanike.webp"
+  },
+  {
+    "id": "c3ce1aeb-a6c3-4625-8cd2-f6dde04b4775",
+    "title": "1234",
+    "description": "23",
+    "price": 2,
+    "stock": 2,
+    "thumbnail": "/img/1759964473641-perfilia.png"
   }
 ]

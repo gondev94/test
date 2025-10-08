@@ -33,7 +33,7 @@ const productManager = new ProductManager("./src/products.json");
 
 io.on("connection", (socket) => {
     console.log("Nuevo cliente conectado");
-    socket.emit("productsHistory", products);
+    
 
     //emitimos un evento desde el server al cliente
     socket.emit("mensaje", {greeting :"Bienvenido al servidor"});

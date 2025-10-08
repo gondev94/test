@@ -106,6 +106,7 @@ li {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     padding: 0;
+    margin: 3rem;
 }
 
 #productsList > div,
