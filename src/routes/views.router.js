@@ -2,6 +2,7 @@ import express from "express";
 import ProductManager from "../productManager.js";
 import CartManager from "../cartManager.js";
 
+
 const viewsRouter = express.Router();
 const productManager = new ProductManager("./src/products.json");
 const cartManager = new CartManager("./src/carts.json");

@@ -14,11 +14,12 @@ const io = new Server (server);
 //handlebars config
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
-app.set("views", "./src/views");
+app.set("views", "./views");
 
 
 app.use(express.static("public")); //4indicamos la carpeta publica para los archivos estaticos
 //enpoints
+
 app.use("/", viewsRouter);
 app.use("/api/products", productsRouter);
 
@@ -42,11 +43,6 @@ io.on("connection", (socket) => {
         products.push(data);
         
         io.emit("productslist", data);
-    });
-
-    socket.on("deleteProduct", async (productId) => {
-        const updatedProducts = await productManager.deleteProductById(productId);
-        io.emit("updateProducts", updatedProducts);
     });
 
     socket.on("deleteProduct", async (productId) => {
